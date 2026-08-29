@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+    <!-- Arrow's old GitLab GApps repo is no longer publicly cloneable.
+         exTHmUI 12 defaults to Vanilla unless EXTHM_GAPPS=true. -->
+    <remove-project name="android_vendor_gapps" />
+
+    <!-- exTHmUI 12 repositories modified during Polaris bring-up. -->
+    <remove-project name="android_device_qcom_sepolicy_vndr" />
+    <project path="device/qcom/sepolicy_vndr"
+             name="exthmui12-polaris-unofficial/android_device_qcom_sepolicy_vndr"
+             remote="github"
+             revision="exthmui-12" />
+
+    <project path="device/xiaomi/polaris"
+             name="exthmui12-polaris-unofficial/android_device_xiaomi_polaris"
+             remote="github"
+             revision="exthmui-12" />
+
+    <project path="device/xiaomi/sdm845-common"
+             name="exthmui12-polaris-unofficial/android_device_xiaomi_sdm845-common"
+             remote="github"
+             revision="exthmui-12" />
+
+    <remove-project name="android_frameworks_base" />
+    <project path="frameworks/base"
+             name="exthmui12-polaris-unofficial/android_frameworks_base"
+             remote="github"
+             revision="exthmui-12" />
+
+    <remove-project name="android_hardware_qcom_media" />
+    <project path="hardware/qcom-caf/sdm845/media"
+             name="exthmui12-polaris-unofficial/android_hardware_qcom_media"
+             remote="github"
+             revision="exthmui-12" />
+
+    <project path="kernel/xiaomi/polaris"
+             name="exthmui12-polaris-unofficial/android_kernel_xiaomi_polaris"
+             remote="github"
+             revision="exthmui-12" />
+
+    <remove-project name="android_packages_apps_Bluetooth" />
+    <project path="packages/apps/Bluetooth"
+             name="exthmui12-polaris-unofficial/android_packages_apps_Bluetooth"
+             remote="github"
+             revision="exthmui-12" />
+
+    <remove-project name="platform/system/bt" />
+    <project path="system/bt"
+             name="exthmui12-polaris-unofficial/android_system_bt"
+             remote="github"
+             revision="exthmui-12" />
+
+    <remove-project name="android_vendor_exthm" />
+    <project path="vendor/exthm"
+             name="exthmui12-polaris-unofficial/android_vendor_exthm"
+             remote="github"
+             revision="exthmui-12" />
+
+    <!-- Unmodified Xiaomi hardware and proprietary blob repositories. -->
+    <project path="vendor/xiaomi/polaris"
+             name="PixelExperience-Blobs/vendor_xiaomi_polaris"
+             remote="github"
+             revision="1bb3549a733e0e6c5b679656e6d835ede86d88eb" />
+
+    <project path="vendor/xiaomi/sdm845-common"
+             name="PixelExperience-Blobs/vendor_xiaomi_sdm845-common"
+             remote="github"
+             revision="4360c3066277de44091c1d097391a00feb5ddf6b" />
+
+    <project path="vendor/xiaomi/sdm845-common-extra"
+             name="PixelExperience-Blobs/vendor_xiaomi_sdm845-common-extra"
+             remote="github"
+             revision="bca11b1c0adc27025d97cf1bd00f2a399364e61f" />
+
+    <project path="hardware/xiaomi"
+             name="PixelExperience/hardware_xiaomi"
+             remote="github"
+             revision="1079fd69d1d46d0a098e85454bbce610e7a224e2" />
+
+    <!-- Android 12 Prelude Clang toolchain selected by the PE device tree. -->
+    <project path="prebuilts/clang/host/linux-x86/clang-prelude"
+             name="jjpprrrr/prelude-clang"
+             remote="gitlab"
+             revision="ac8fce34dc0f6918672100d7a6e867a66b8afa8f" />
+
+    <!-- QTI Bluetooth stack required by PE sdm845-common. -->
+    <project path="vendor/qcom/opensource/commonsys-intf/bluetooth"
+             name="android_vendor_qcom_opensource_bluetooth-commonsys-intf"
+             remote="arrow"
+             revision="b85ad8f707d335663bed457fd2c9d1a56553af15" />
+
+    <project path="vendor/qcom/opensource/commonsys/bluetooth_ext"
+             name="android_vendor_qcom_opensource_bluetooth_ext"
+             remote="arrow"
+             revision="842b47c32ce99e1ea1a75a45ec6a6ee50793fec1" />
+
+    <project path="vendor/qcom/opensource/commonsys/packages/apps/Bluetooth"
+             name="android_vendor_qcom_opensource_packages_apps_Bluetooth"
+             remote="arrow"
+             revision="7aafef303c7bffc4588ad3b0b5f3a349d04fa81d" />
+
+    <project path="vendor/qcom/opensource/commonsys/system/bt"
+             name="android_vendor_qcom_opensource_system_bt"
+             remote="arrow"
+             revision="550418d493d6aefa7d5ca487eb1e273938df6864" />
+
+    <!-- Polaris does not implement Android's Persistent/Daydream VR HAL.
+         The device tree intentionally omits android.hardware.vr and vr.sdm845. -->
+</manifest>
