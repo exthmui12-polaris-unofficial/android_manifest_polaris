@@ -44,6 +44,12 @@
              remote="github"
              revision="exthmui-12" />
 
+    <remove-project name="android_packages_apps_Settings" />
+    <project path="packages/apps/Settings"
+             name="exthmui12-polaris-unofficial/android_packages_apps_Settings"
+             remote="github"
+             revision="exthmui-12" />
+
     <remove-project name="platform/system/bt" />
     <project path="system/bt"
              name="exthmui12-polaris-unofficial/android_system_bt"
