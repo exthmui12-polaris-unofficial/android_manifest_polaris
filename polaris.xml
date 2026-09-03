@@ -5,6 +5,12 @@
     <remove-project name="android_vendor_gapps" />
 
     <!-- exTHmUI 12 repositories modified during Polaris bring-up. -->
+    <remove-project name="android_device_exthm_sepolicy" />
+    <project path="device/exthm/sepolicy"
+             name="exthmui12-polaris-unofficial/android_device_exthm_sepolicy"
+             remote="github"
+             revision="exthmui-12" />
+
     <remove-project name="android_device_qcom_sepolicy_vndr" />
     <project path="device/qcom/sepolicy_vndr"
              name="exthmui12-polaris-unofficial/android_device_qcom_sepolicy_vndr"
@@ -50,6 +56,49 @@
              remote="github"
              revision="exthmui-12" />
 
+    <remove-project name="android_packages_apps_ThemePicker" />
+    <project path="packages/apps/ThemePicker"
+             name="exthmui12-polaris-unofficial/android_packages_apps_ThemePicker"
+             remote="github"
+             revision="exthmui-12" />
+
+    <!-- Hardened Android 12 non-A/B updater for Polaris. -->
+    <project path="packages/apps/Updater"
+             name="exthmui12-polaris-unofficial/android_packages_apps_Updater"
+             remote="github"
+             revision="exthmui-12" />
+
+    <!-- LineageOS Android 12 Seedvault. Keep the audited source pinned and
+         apply exTHmUI product policy through vendor overlays. -->
+    <project path="packages/apps/Seedvault"
+             name="LineageOS/android_packages_apps_Seedvault"
+             remote="github"
+             revision="c47aaf20183e4d5a14ba32c5048a8f9e342e15bd" />
+
+    <!-- PixelExperience Android 12 software face unlock. Keep these pinned to
+         the audited upstream revisions; external/faceunlock contains
+         third-party biometric binaries without a clear redistribution grant. -->
+    <project path="packages/apps/FaceUnlockService"
+             name="PixelExperience/packages_apps_FaceUnlockService"
+             remote="github"
+             revision="e6f130d6647a98853b490d952ca2c8ef786a9d48" />
+
+    <project path="external/faceunlock"
+             name="PixelExperienceArchive/external_faceunlock"
+             remote="github"
+             revision="8ac7a4588e782869cbf6b9e2345f249083112a79" />
+
+    <!-- Android 12 theme overlays used by ThemePicker. -->
+    <project path="packages/overlays/Lineage"
+             name="exthmui12-polaris-unofficial/android_packages_overlays_Lineage"
+             remote="github"
+             revision="exthmui-12" />
+
+    <project path="packages/services/OmniJaws"
+             name="exthmui12-polaris-unofficial/android_packages_services_OmniJaws"
+             remote="github"
+             revision="exthmui-12" />
+
     <remove-project name="platform/system/bt" />
     <project path="system/bt"
              name="exthmui12-polaris-unofficial/android_system_bt"
@@ -62,16 +111,16 @@
              remote="github"
              revision="exthmui-12" />
 
-    <!-- Unmodified Xiaomi hardware and proprietary blob repositories. -->
+    <!-- Xiaomi hardware and proprietary blob repositories. -->
     <project path="vendor/xiaomi/polaris"
              name="PixelExperience-Blobs/vendor_xiaomi_polaris"
              remote="github"
              revision="1bb3549a733e0e6c5b679656e6d835ede86d88eb" />
 
     <project path="vendor/xiaomi/sdm845-common"
-             name="PixelExperience-Blobs/vendor_xiaomi_sdm845-common"
+             name="exthmui12-polaris-unofficial/android_vendor_xiaomi_sdm845-common"
              remote="github"
-             revision="4360c3066277de44091c1d097391a00feb5ddf6b" />
+             revision="exthmui-12" />
 
     <project path="vendor/xiaomi/sdm845-common-extra"
              name="PixelExperience-Blobs/vendor_xiaomi_sdm845-common-extra"
