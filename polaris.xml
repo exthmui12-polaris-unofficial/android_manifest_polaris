@@ -68,6 +68,24 @@
              remote="github"
              revision="exthmui-12" />
 
+    <!-- Vanilla network location without GMS. Keep all source revisions pinned. -->
+    <project path="packages/apps/UnifiedNlp"
+             name="microg/UnifiedNlp"
+             remote="github"
+             revision="82479b79c76353f532e0c6edd0d1dee8d49c48f4" />
+    <project path="external/UnifiedNlpApi"
+             name="microg/android_external_UnifiedNlpApi"
+             remote="github"
+             revision="59b6741166571bfcaf64e5feec7469190c7852aa" />
+    <project path="external/MicroGUiTools"
+             name="microg/android_external_MicroGUiTools"
+             remote="github"
+             revision="0dedff974617604b61e78c22bd57a8f1b5b14512" />
+    <project path="packages/apps/IchnaeaNlpBackend"
+             name="microg/IchnaeaNlpBackend"
+             remote="github"
+             revision="a947b02d013b87f2d3ce0c3da394d33cdc4b5369" />
+
     <!-- LineageOS Android 12 Seedvault. Keep the audited source pinned and
          apply exTHmUI product policy through vendor overlays. -->
     <project path="packages/apps/Seedvault"
