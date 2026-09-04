@@ -61,7 +61,6 @@ adb shell dumpsys > dumpsys-initial.txt
 - NFC：检查 `/data/vendor/nfc` 的创建、owner/mode/label、配置持久化和重启。
 - WFD：检查实际 APK/native 库、服务启动、Sink 发现、连接、音视频、HDCP、断开重连。
 - Face Unlock：检查 feature/provider、弱强度、最多一个模板、录入/删除/重录、`BIOMETRIC_WEAK`、凭据回退和用户隔离。
-- OmniJaws：检查默认关闭、权限、MET Norway/手动城市、HTTPS、失败保留、锁屏 compact/slice/Smartspace、widget 和用户切换。
 - Seedvault：检查 Vanilla/GApps transport、升级保留用户选择、Provision 后备份/恢复；只用可丢弃数据。
 - 状态栏/QS/电源/截图/Adaptive Playback：每项验证默认值、合法范围、重启、SystemUI 重启、旋转和用户切换。
 
@@ -69,8 +68,8 @@ adb shell dumpsys > dumpsys-initial.txt
 
 ## 最近一次完整包
 
-路径：`/root/android/exthmui12/out/target/product/polaris/exthm-12.0-20260903-UNOFFICIAL-SNAPSHOT-polaris-Vanilla.zip`
+路径：`/root/android/exthmui12/out/target/product/polaris/exthm-12.0-20260904-UNOFFICIAL-SNAPSHOT-polaris-Gapps.zip`
 
-大小：`1,104,437,513` bytes
+大小：`1,092,782,800` bytes
 
-SHA-256：`fa75714cfb8c4b77cec66381e8131950bbeb5f71a14be295cfc94e623b10cd31`
+SHA-256：`7d9c137ba9e5703b92569286f932c12df66c9780e051c07b6b569b8795b16d65`

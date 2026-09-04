@@ -112,11 +112,6 @@
              remote="github"
              revision="exthmui-12" />
 
-    <project path="packages/services/OmniJaws"
-             name="exthmui12-polaris-unofficial/android_packages_services_OmniJaws"
-             remote="github"
-             revision="exthmui-12" />
-
     <remove-project name="platform/system/bt" />
     <project path="system/bt"
              name="exthmui12-polaris-unofficial/android_system_bt"

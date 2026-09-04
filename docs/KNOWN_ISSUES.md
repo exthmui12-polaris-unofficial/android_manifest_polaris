@@ -10,9 +10,9 @@ Problem: 本轮正在收敛 Updater 的下载边界、Settings 的旧 Secure 兼
 
 Evidence: UpdaterCoreTests 通过 28 项，`m Updater` 通过；SettingsProviderTest 构建通过。SettingsProvider 已升至 version 205，17 个旧键使用 Android 12 的 SystemSettingsValidators 做一次性迁移。
 
-Conclusion: HTTPS、签名、metadata、设备校验、非 A/B 安装、OmniJaws 主机/API key/重定向保护均保留；尚未执行最终完整 ROM 构建和设备运行验证。
+Conclusion: HTTPS、签名、metadata、设备校验和非 A/B 安装保护均保留；天气功能已从产品、Settings、SystemUI、manifest 和最终镜像移除；完整 GApps ROM 已构建。
 
-Next step: 完成 Settings、SystemUI、Updater 模块验证，再以 CPU affinity `0-11` 构建并检查最终包。
+Next step: 在不刷写设备唯一分区的前提下，按 TESTING.md 验证剩余设备运行路径。
 
 ### Updater 受控运行验证未完成
 
@@ -26,7 +26,7 @@ Next step: 使用匹配签名的 Polaris 非 A/B OTA 做 HTTPS feed、超限、�
 
 ### 设备运行验证仍未完成
 
-Problem: 近期 bring-up 修复尚有 NFC 数据目录、BootReceiver tracefs、WFD、Face Unlock、OmniJaws、Seedvault 和锁屏/状态栏等设备侧验证未完成。
+Problem: 近期 bring-up 修复尚有 NFC 数据目录、BootReceiver tracefs、WFD、Face Unlock、Seedvault 和锁屏/状态栏等设备侧验证未完成。
 
 Evidence: 相关模块或增量 system image 已能构建；GPU memory eBPF 统计仍因 Polaris 4.9 内核缺少 Android 12 `gpu_mem_total` tracepoint 而不可用。
 
@@ -45,16 +45,6 @@ Evidence: Seedvault 仅在 Vanilla 打包，GApps 保留 GMS；迁移逻辑保�
 Conclusion: 源码和增量镜像已验证，真实备份、升级迁移和恢复仍待设备验证。
 
 Next step: 使用可丢弃测试数据完成 Provision 后的备份/恢复和多用户升级矩阵。
-
-### OmniJaws weather
-
-Problem: 原有天气入口、provider 和锁屏消费者不完整。
-
-Evidence: Android 12 provider、显式 Settings 入口、HTTPS-only 网络策略、权限保护和 compact/slice 互斥逻辑已构建。
-
-Conclusion: 源码边界已收敛，定位、provider、Smartspace、widget 和视觉布局尚未真机确认。
-
-Next step: 覆盖默认关闭、权限拒绝、手动/自动城市、网络失败、Smartspace、AOD、重启和用户切换。
 
 ### WFD service
 
@@ -88,8 +78,8 @@ Next step: 在重建镜像上只复测有新证据的路径，保留 GPU 统计�
 
 ## 最近一次完整包
 
-Artifact: `/root/android/exthmui12/out/target/product/polaris/exthm-12.0-20260903-UNOFFICIAL-SNAPSHOT-polaris-Vanilla.zip`
+Artifact: `/root/android/exthmui12/out/target/product/polaris/exthm-12.0-20260904-UNOFFICIAL-SNAPSHOT-polaris-Gapps.zip`
 
-Size: `1,104,437,513` bytes
+Size: `1,092,782,800` bytes
 
-SHA-256: `fa75714cfb8c4b77cec66381e8131950bbeb5f71a14be295cfc94e623b10cd31`
+SHA-256: `7d9c137ba9e5703b92569286f932c12df66c9780e051c07b6b569b8795b16d65`
