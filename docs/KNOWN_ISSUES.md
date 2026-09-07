@@ -4,6 +4,18 @@
 
 ## 当前
 
+### NFC 缓存持久化与 GPU 原生统计（2026-09-07）
+
+Status: 两项均通过真机验证，已生成并验证完整 Vanilla 包；设备当前 GPU boot 是临时启动，正式安装待用户执行。
+
+Cause/Fix: NFC HAL 缺目录 search/write/add_name 和文件 create，已最小补齐。GPU 缺 Android 12 gpu_mem_total 与 BPF_EVENTS，已增加独立事件、所需配置依赖和 KGSL 全局/进程记账，包含 DMA-BUF 全局去重及最终释放清理。
+
+Evidence: NFC 五轮开关、HAL 缓存重建及跨重启 4 字节 CRC 一致；GPU 精确分配增量、线程/进程隔离、重复导入去重、失败与退出清理及重启恢复通过。600 秒 GLES 测试完成 33452 帧像素校验，400 次并发内存操作通过，退出后总量回到基线，无 GPU hang/fault，SELinux Enforcing。完整 OTA 的签名、CRC、metadata、VINTF、包内 NFC 权限及测试内核一致性通过，正式包无诊断 ramdisk/参数。
+
+Limits: 显存相关 9 项单测通过；全套 22 项断言通过但退出时有 libstatspull/Binder LeakSanitizer 报告，全套进程结果不计通过。实体 NFC 标签、secure 显存分配未实测。新消费者需等进程下一次记账事件获取该进程存量。
+
+Next step: 用户核对后安装完整包，补测实体 NFC 标签。产物信息和测试细节见 [NFC_GPU_VALIDATION.md](NFC_GPU_VALIDATION.md)。
+
 ### 代码收敛优化
 
 Problem: 本轮正在收敛 Updater 的下载边界、Settings 的旧 Secure 兼容层、SystemUI/Settings 的重复防御逻辑，以及重复测试和流程性文档。
